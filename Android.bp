@@ -1,0 +1,21 @@
+cc_binary {
+    name: "usb_modeswitch",
+    init_rc: ["usb_modeswitch.rc"],
+    proprietary: true,
+
+    srcs: [
+        "usb_modeswitch.c",
+    ],
+
+    shared_libs: [
+        "libusb",
+        "liblog",
+        "libutils",
+        "libcutils",
+    ],
+
+    include_dirs: [
+        "external/libusb/include/libusb",
+    ],
+}
+

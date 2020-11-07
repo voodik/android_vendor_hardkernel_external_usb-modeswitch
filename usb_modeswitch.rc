@@ -1,0 +1,10 @@
+service usb_modeswitch /vendor/bin/usb_modeswitch -c /odm/usb_modeswitch.conf
+    class core
+    seclabel u:r:toolbox:s0
+    user root
+    group root
+    disabled
+    oneshot
+
+on property:sys.usb_modem_trigger=true
+    start usb_modeswitch
