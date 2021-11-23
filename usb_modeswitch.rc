@@ -1,8 +1,14 @@
-service usb_modeswitch /vendor/bin/usb_modeswitch -c /odm/usb_modeswitch.conf
+service usb_modeswitch /vendor/bin/usb_modeswitch -c /fat/usb_modeswitch.conf
     class core
     seclabel u:r:toolbox:s0
     user root
     group root
+    disabled
+    oneshot
+
+service rtl_usb_dongle /vendor/bin/usb_modeswitch -KQ -v 0bda -p 1a2b
+    class main
+    seclabel u:r:toolbox:s0
     disabled
     oneshot
 
